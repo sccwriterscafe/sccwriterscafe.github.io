@@ -1,92 +1,1921 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Interactive Three.js Stars</title>
-    <style>
-        body { margin: 0; }
-    </style>
-</head>
-<body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script>
+<html class="no-js" lang="en-US">
+    <head>
+      
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Superba | Café & Bakery in CA</title>
+	<!-- Powered by BentoBox http://getbento.com -->
+	<!--
+	___ ___ _  _ _____ ___  ___  _____  __
+	| _ ) __| \| |_   _/ _ \| _ )/ _ \ \/ /
+	| _ \ _|| .` | | || (_) | _ \ (_) >  <
+	|___/___|_|\_| |_| \___/|___/\___/_/\_\
 
-        // Initialize Three.js
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        document.body.appendChild(renderer.domElement);
+	-->
+		<meta name="keywords" content="Brunch Restaurant, All Day Restaurant, Bakery, Los Angeles, Venice, Pasadena, Hollywood, NoHo, North Hollywood, LA">
+		<meta name="description" content="Superba Snacks + Coffee is a fun-loving eatery and coffee stop. We serve breakfast + lunch with a selection of pastries and breads baked fresh everyday. Located across CA.">
+		<link rel="icon" href="https://media-cdn.getbento.com/accounts/a40d878eeed51f967e5d1a45d4171cfa/media/images/69005favicon.png">
+	<link rel="canonical" href="https://www.lifesuperba.com/">
+	<meta name="Revisit-After" content="5 Days">
+	<meta name="Distribution" content="Global">
+	<meta name="Rating" content="General">
+		<meta property="og:site_name" content="Superba | Café & Bakery in CA">
+		<meta property="og:title" content="Superba | Café & Bakery in CA">
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="https://www.lifesuperba.com/">
+			<meta property="og:description" content="Superba Snacks + Coffee is a fun-loving eatery and coffee stop. We serve breakfast + lunch with a selection of pastries and breads baked fresh everyday. Located across CA.">
+			<meta property="og:image" content="https://images.getbento.com/accounts/a40d878eeed51f967e5d1a45d4171cfa/media/images/72582Superbalogo-cropped.png?w=1200&fit=fill&auto=compress,format&h=600&bg=EDEDF1&pad=100">
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:title" content="Superba | Café & Bakery in CA">
+			<meta name="twitter:description" content="Superba Snacks + Coffee is a fun-loving eatery and coffee stop. We serve breakfast + lunch with a selection of pastries and breads baked fresh everyday. Located across CA.">
+			<meta name="twitter:image" content="https://images.getbento.com/accounts/a40d878eeed51f967e5d1a45d4171cfa/media/images/72582Superbalogo-cropped.png?w=1200&fit=fill&auto=compress,format&h=600&bg=EDEDF1&pad=100">
+	<script type="text/javascript" src="https://theme-assets.getbento.com/sensei/abc7247.sensei/assets/js/head.min.js"></script>
+	<script type="text/javascript">
+			WebFont.load({google: { families: ["Montserrat::latin", "Montserrat:400,500,700", "Roboto+Slab"] }});
+		</script>
+			<noscript>
+			    <style type="text/css">
+			    	<link href="https://fonts.googleapis.com/css?family=Montserrat::latin|Montserrat:400,500,700|Roboto+Slab" rel="stylesheet" type="text/css">
+			    </style>
+			</noscript>
+	
+	<link rel="stylesheet" href="//assets-cdn-refresh.getbento.com/stylesheet/superbafoodandbread/1/scss/main.2ba1e2ad8207928aa7cfb8cc125b9696.scss" />
+	<script type="text/javascript">
+	    Modernizr.addTest("maybemobile", function(){ return (Modernizr.touchevents && Modernizr.mq("only screen and (max-width: 768px)")) ? true : false; });
+	</script>
 
-        // Create ambient light
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-        scene.add(ambientLight);
+  
+  
 
-        // Create a geometry for the stars
-        const starGeometry = new THREE.BufferGeometry();
-        const starMaterial = new THREE.PointsMaterial({ color: 0xffffff });
+  
+  
 
-        // Create an array to store star positions
-        const stars = [];
+	
+	
+
+	
+	
+	<script type="text/javascript">
+			window.Sensei = { settings: { store: { enabled: false, cart_quantity: null }, gmaps: { apikey: "AIzaSyCxtTPdJqQMOwjsbKBO3adqPGzBR1MgC5g", styles: [{"featureType":"water","elementType":"geometry","stylers":[{"color":"#e9e9e9"},{"lightness":17}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":20}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#ffffff"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":16}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":21}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#dedede"},{"lightness":21}]},{"elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"lightness":16}]},{"elementType":"labels.text.fill","stylers":[{"color":"#333333"},{"lightness":40}]},{"elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#f2f2f2"},{"lightness":19}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#fefefe"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#fefefe"},{"lightness":17},{"weight":1.2}]}], icon: "https://images.getbento.com/accounts/a40d878eeed51f967e5d1a45d4171cfa/media/images/98089mapmarker.png", mobile_icon: "https%3A//images.getbento.com/accounts/a40d878eeed51f967e5d1a45d4171cfa/media/images/98089mapmarker.png%3Fw%3D50%26fit%3Dmax%26auto%3Dcompress%2Cformat" }, galleries: { autoplay: false, fade: false }, heros: { autoplay_galleries: true }, srcset_enabled: false }, modernizr: window.Modernizr }; /* Slider speed */ window.Sensei.settings.galleries.autoplaySpeed = 4000; window.Sensei.settings.galleries.speed = 3000; document.addEventListener('DOMContentLoaded', function() { var hasClass, addClass, removeClass; if ('classList' in document.documentElement) { hasClass = function (el, className) { return el.classList.contains(className); }; addClass = function (el, className) { el.classList.add(className); }; removeClass = function (el, className) { el.classList.remove(className); }; } else { hasClass = function (el, className) { return new RegExp('\\b'+ className+'\\b').test(el.className); }; addClass = function (el, className) { if (!hasClass(el, className)) { el.className += ' ' + className; } }; removeClass = function (el, className) { el.className = el.className.replace(new RegExp('\\b'+ className+'\\b', 'g'), ''); }; } HTMLCollection.prototype.forEach = Array.prototype.forEach; var allCSplits = document.getElementsByClassName('c-split'); allCSplits.forEach(function(cSplit, cSplitIndex, cSplitList) { addClass(cSplit, "c-split-" + (cSplitIndex + 1)); if(cSplitIndex % 2 == 0 ) { addClass(cSplit, "c-split-odd"); } else { addClass(cSplit, "c-split-even"); } if(Object.is(cSplitList.length - 1, cSplitIndex)) { addClass(cSplit, "c-split-last"); } }); var oneColTexts = document.getElementsByClassName('c-one-col--text'); oneColTexts.forEach(function(oneColText, oneColTextIndex, oneColTextList) { addClass(oneColText, "c-one-col-" + (oneColTextIndex + 1)); if(oneColTextIndex % 2 == 0 ) { addClass(oneColText, "c-one-col-odd"); } else { addClass(oneColText, "c-one-col-even"); } if(Object.is(oneColTextList.length - 1, oneColTextIndex)) { addClass(oneColText, "c-one-col-last"); } }); var lonelyTab = document.querySelector('.tabs-nav li:only-child'); if(lonelyTab) { lonelyTab.parentElement.remove(); } var twoColumnPs = document.querySelectorAll('.c-two-col--freeform p'); twoColumnPs.forEach(function(twoColP) { if(twoColP.innerText.trim() == "") { twoColP.remove(); } }); }, false);
+	</script>
+	<!--[if lt IE 9]>
+	    <script type="text/javascript" src="https://theme-assets.getbento.com/sensei/abc7247.sensei/assets/assets/js/ltie9.min.js "></script>
+	<![endif] -->
+
+      
+			
+				
+				
+			
+				
+				
+			
+				
+				
+			
+				
+				
+			
+				
+				
+			
+				
+				
+			
+				
+				
+			
+				
+				
+			
+				
+				
+			
+				
+				
+			
+				
+				
+			<script type="application/ld+json">{"@context": "http://schema.org", "@type": "Organization", "@id": "https://www.lifesuperba.com/#organization", "url": "https://www.lifesuperba.com", "name": "Superba", "description": "Superba Snacks + Coffee is a fun-loving eatery and coffee stop. We serve breakfast + lunch with a selection of pastries and breads baked fresh everyday. Located across CA.", "logo": "https://images.getbento.com/accounts/a40d878eeed51f967e5d1a45d4171cfa/media/images/72582Superbalogo-cropped.png?w=600\u0026fit=max\u0026auto=compress,format\u0026h=600", "subOrganization": [{"@type": "FoodEstablishment", "@id": "https://www.lifesuperba.com/location/superba-venice/#foodestablishment", "url": "https://www.lifesuperba.com/location/superba-venice/", "name": "Venice", "description": "", "image": "", "photo": "", "address": {"@type": "PostalAddress", "name": "Venice", "streetAddress": "1900 S Lincoln Blvd", "addressLocality": "Venice", "addressRegion": "CA", "postalCode": "90291"}, "location": {"@type": "PostalAddress", "name": "Venice", "streetAddress": "1900 S Lincoln Blvd", "addressLocality": "Venice", "addressRegion": "CA", "postalCode": "90291"}, "telephone": "310.907.5075", "hasMap": "https://www.lifesuperba.com/location/superba-venice/", "parentOrganization": {"@type": "Organization", "@id": "https://www.lifesuperba.com/#organization"}, "servesCuisine": "Cafe, Bakery", "priceRange": "$$", "acceptsReservations": "https://www.lifesuperba.com/location/superba-venice/", "potentialAction": {"@type": "ReserveAction", "object": {"@type": "Reservation", "name": "Table at Venice"}, "result": {"@type": "Reservation", "name": "Table at Venice"}, "target": "https://www.lifesuperba.com/location/superba-venice/", "location": {"@id": "https://www.lifesuperba.com/location/superba-venice/#foodestablishment"}}}, {"@type": "FoodEstablishment", "@id": "https://www.lifesuperba.com/location/superba-hollywood/#foodestablishment", "url": "https://www.lifesuperba.com/location/superba-hollywood/", "name": "Hollywood", "description": "", "image": "", "photo": "", "address": {"@type": "PostalAddress", "name": "Hollywood", "streetAddress": "6530 Sunset Blvd", "addressLocality": "Los Angeles", "addressRegion": "CA", "postalCode": "90028"}, "location": {"@type": "PostalAddress", "name": "Hollywood", "streetAddress": "6530 Sunset Blvd", "addressLocality": "Los Angeles", "addressRegion": "CA", "postalCode": "90028"}, "telephone": "323-364-9844", "hasMap": "https://www.lifesuperba.com/location/superba-hollywood/", "parentOrganization": {"@type": "Organization", "@id": "https://www.lifesuperba.com/#organization"}, "servesCuisine": "Cafe, Bakery", "priceRange": "$$", "acceptsReservations": "https://www.lifesuperba.com/location/superba-hollywood/", "potentialAction": {"@type": "ReserveAction", "object": {"@type": "Reservation", "name": "Table at Hollywood"}, "result": {"@type": "Reservation", "name": "Table at Hollywood"}, "target": "https://www.lifesuperba.com/location/superba-hollywood/", "location": {"@id": "https://www.lifesuperba.com/location/superba-hollywood/#foodestablishment"}}}, {"@type": "FoodEstablishment", "@id": "https://www.lifesuperba.com/location/superba-pasadena/#foodestablishment", "url": "https://www.lifesuperba.com/location/superba-pasadena/", "name": "Pasadena", "description": "", "image": "", "photo": "", "address": {"@type": "PostalAddress", "name": "Pasadena", "streetAddress": "712 S Arroyo Pkwy", "addressLocality": "Pasadena", "addressRegion": "CA", "postalCode": "91105"}, "location": {"@type": "PostalAddress", "name": "Pasadena", "streetAddress": "712 S Arroyo Pkwy", "addressLocality": "Pasadena", "addressRegion": "CA", "postalCode": "91105"}, "telephone": "626-522-7008", "hasMap": "https://www.lifesuperba.com/location/superba-pasadena/", "parentOrganization": {"@type": "Organization", "@id": "https://www.lifesuperba.com/#organization"}, "servesCuisine": "Cafe, Bakery", "priceRange": "$$"}, {"@type": "FoodEstablishment", "@id": "https://www.lifesuperba.com/location/superba-noho/#foodestablishment", "url": "https://www.lifesuperba.com/location/superba-noho/", "name": "Noho", "description": "", "image": "", "photo": "", "address": {"@type": "PostalAddress", "name": "Noho", "streetAddress": "5203 Lankershim Blvd", "addressLocality": "North Hollywood", "addressRegion": "CA", "postalCode": "91601"}, "location": {"@type": "PostalAddress", "name": "Noho", "streetAddress": "5203 Lankershim Blvd", "addressLocality": "North Hollywood", "addressRegion": "CA", "postalCode": "91601"}, "telephone": "818-275-9333", "hasMap": "https://www.lifesuperba.com/location/superba-noho/", "parentOrganization": {"@type": "Organization", "@id": "https://www.lifesuperba.com/#organization"}, "servesCuisine": "Cafe, Bakery", "priceRange": "$$"}], "sameAs": "https://www.instagram.com/lifesuperba/", "potentialAction": [{"@type": "ReserveAction", "object": {"@type": "Reservation", "name": "Table", "url": "https://www.lifesuperba.com/#action-reservations"}, "result": {"@type": "Reservation", "name": "Table"}, "target": "https://www.lifesuperba.com"}, {"@type": "SubscribeAction", "object": {"@type": "Product", "name": "Mailing List"}, "target": "https://www.lifesuperba.com"}]}</script>
+			<script type="application/ld+json">{"@context": "http://schema.org", "@type": "WebSite", "@id": "https://www.lifesuperba.com/#website", "url": "https://www.lifesuperba.com", "name": "Superba"}</script>
+			<script type="application/ld+json">{"@context": "http://schema.org", "@type": "WebPage", "@id": "https://www.lifesuperba.com/#webpage", "url": "https://www.lifesuperba.com", "name": "Superba"}</script>
+
+      
+    </head>
+    <body class="has-hero-intent has-mobi-footer index-template">
         
-        // Create a points object for stars
-        const starField = new THREE.Points(starGeometry, starMaterial);
-        scene.add(starField);
+	
+		
+  	
 
-        // Function to add a new star at the given position
-        function addStar(position) {
-            const starVertex = new THREE.Vector3();
-            starVertex.x = (Math.random() - 0.5) * 100;
-            starVertex.y = (Math.random() - 0.5) * 100;
-            starVertex.z = -Math.random() * 100;
-            starGeometry.attributes.position.array.push(starVertex.x, starVertex.y, starVertex.z);
-            starGeometry.attributes.position.needsUpdate = true;
-            stars.push(starVertex);
-        }
+	
+		
+			<div class="site-notifications">
+				
+			</div>
+		
 
-        // Handle window resize
-        window.addEventListener('resize', () => {
-            const newWidth = window.innerWidth;
-            const newHeight = window.innerHeight;
-            camera.aspect = newWidth / newHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(newWidth, newHeight);
-        });
+		
+			
+	<header class="site-header">
+		<a href="#main-content" class="skip">Skip to main content</a>
+		<div class="site-header-desktop">
+			<div class="site-header-desktop-primary site-header-desktop-primary--floatable" data-header-sticky>
+				<div class="container">
+					
+		<div class="site-logo">
+	        <a class="site-logo__btn" href="/">
+	            
+					<img class="site-logo__expanded" src="https://images.getbento.com/accounts/a40d878eeed51f967e5d1a45d4171cfa/media/images/72582Superbalogo-cropped.png" 
+  
 
-        // Handle mouse click event
-        window.addEventListener('click', (event) => {
-            // Get mouse coordinates in normalized device space
-            const mouseX = (event.clientX / window.innerWidth) * 2 - 1;
-            const mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+  
 
-            // Calculate the intersection point with the camera's near plane
-            const raycaster = new THREE.Raycaster();
-            raycaster.setFromCamera({ x: mouseX, y: mouseY }, camera);
-            const intersects = raycaster.intersectObject(starField);
+  
+    
+      alt="Superba Home"
+    
+  
+ />
+              	
+	            
+	        </a>
+	    </div>
 
-            // Add a new star at the intersection point
-            if (intersects.length > 0) {
-                const intersectionPoint = intersects[0].point;
-                addStar(intersectionPoint);
-            }
-        });
+				    
+	<nav class="site-nav">
+    <ul class="site-nav-menu" data-menu-type="desktop">
+			
+			<li class="site-nav-submenu">
+				<button type="button" class="site-nav-link site-nav-submenu-toggle" aria-expanded="false" aria-controls="SubMenu-1">
+					Menus
+				</button>
+				<div id="SubMenu-1" class="sub-menu">
+					<ul>
+							<li>
+								<a href="/hollywood-menu/"  >Hollywood</a>
+							</li>
+							<li>
+								<a href="/noho-menu/"  >Noho</a>
+							</li>
+							<li>
+								<a href="/pasadena-menu/"  >Pasadena</a>
+							</li>
+							<li>
+								<a href="/venice-menu/"  >Venice</a>
+							</li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<a class="site-nav-link   " href="/<button class="btn btn-brand" data-popup="inline" data-popup-src="#popup-reservations-form" type="button"/">Reservations</a>
+			</li>
+			<li class="site-nav-submenu">
+				<button type="button" class="site-nav-link site-nav-submenu-toggle" aria-expanded="false" aria-controls="SubMenu-3">
+					Locations
+				</button>
+				<div id="SubMenu-3" class="sub-menu">
+					<ul>
+							<li>
+								<a href="/location/superba-hollywood/"  >Hollywood</a>
+							</li>
+							<li>
+								<a href="/location/superba-noho/"  >Noho</a>
+							</li>
+							<li>
+								<a href="/location/superba-pasadena/"  >Pasadena</a>
+							</li>
+							<li>
+								<a href="/location/superba-venice/"  >Venice</a>
+							</li>
+					</ul>
+				</div>
+			</li>
+			<li class="site-nav-submenu">
+				<button type="button" class="site-nav-link site-nav-submenu-toggle" aria-expanded="false" aria-controls="SubMenu-4">
+					Gift Cards
+				</button>
+				<div id="SubMenu-4" class="sub-menu">
+					<ul>
+							<li>
+								<a href="https://www.toasttab.com/superba-food-bread-venice/giftcards"  target="_blank" rel="noopener">Venice</a>
+							</li>
+							<li>
+								<a href="https://www.toasttab.com/superba-snacks-and-coffee-pasadena/giftcards"  target="_blank" rel="noopener">Pasadena</a>
+							</li>
+							<li>
+								<a href="https://www.toasttab.com/superba-snacks-and-coffee-noho/giftcards"  target="_blank" rel="noopener">Noho</a>
+							</li>
+							<li>
+								<a href="https://www.toasttab.com/superba-food-bread-hollywood/giftcards"  target="_blank" rel="noopener">Hollywood</a>
+							</li>
+					</ul>
+				</div>
+			</li>
+<li><a href="/order-now" class="btn btn-brand" target="_parent">Order Now</a></li>
+		</ul>
+  </nav>
 
-        // Set camera position
-        camera.position.z = 5;
+				</div>
+			</div>
+		</div>
+	  <div class="site-header-mobi" aria-label="Navigation Menu Modal">
+	    
+		<div class="site-logo">
+	        <a class="site-logo__btn" href="/">
+		            
+                  		<img src="https://images.getbento.com/accounts/a40d878eeed51f967e5d1a45d4171cfa/media/images/72582Superbalogo-cropped.png" 
+  
 
-        // Render loop
-        const animate = () => {
-            requestAnimationFrame(animate);
+  
 
-            // Rotate stars
-            starField.rotation.x += 0.001;
-            starField.rotation.y += 0.001;
+  
+    
+      alt="Superba Home"
+    
+  
+ />
+                	
+		            
+	        </a>
+	    </div>
 
-            renderer.render(scene, camera);
-        };
+			
+	
 
-        animate();
 
-    </script>
-</body>
-</html>
+	    <button type="button" class="nav-toggle-btn" aria-controls="SiteHeaderMobilePanel" aria-expanded="false">
+	      <span class="sr-only">Toggle Navigation</span>
+	      <span class="nav-toggle-btn__line"></span>
+	      <span class="nav-toggle-btn__line"></span>
+	      <span class="nav-toggle-btn__line"></span>
+	    </button>
+
+	    <div id="SiteHeaderMobilePanel" class="site-header-mobi-panel">
+	      <div class="site-header-mobi-panel__inner">
+					
+	<nav class="site-nav" aria-label="Navigation Menu">
+    <ul class="site-nav-menu" data-menu-type="mobile">
+			
+			<li class="site-nav-submenu">
+				<button type="button" class="site-nav-link site-nav-submenu-toggle" aria-expanded="false" aria-controls="MobileSubMenu-1">
+					Menus
+				</button>
+				<div id="MobileSubMenu-1" class="sub-menu">
+					<ul>
+							<li>
+								<a href="/hollywood-menu/"  >Hollywood</a>
+							</li>
+							<li>
+								<a href="/noho-menu/"  >Noho</a>
+							</li>
+							<li>
+								<a href="/pasadena-menu/"  >Pasadena</a>
+							</li>
+							<li>
+								<a href="/venice-menu/"  >Venice</a>
+							</li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<a class="site-nav-link   " href="/<button class="btn btn-brand" data-popup="inline" data-popup-src="#popup-reservations-form" type="button"/">Reservations</a>
+			</li>
+			<li class="site-nav-submenu">
+				<button type="button" class="site-nav-link site-nav-submenu-toggle" aria-expanded="false" aria-controls="MobileSubMenu-3">
+					Locations
+				</button>
+				<div id="MobileSubMenu-3" class="sub-menu">
+					<ul>
+							<li>
+								<a href="/location/superba-hollywood/"  >Hollywood</a>
+							</li>
+							<li>
+								<a href="/location/superba-noho/"  >Noho</a>
+							</li>
+							<li>
+								<a href="/location/superba-pasadena/"  >Pasadena</a>
+							</li>
+							<li>
+								<a href="/location/superba-venice/"  >Venice</a>
+							</li>
+					</ul>
+				</div>
+			</li>
+			<li class="site-nav-submenu">
+				<button type="button" class="site-nav-link site-nav-submenu-toggle" aria-expanded="false" aria-controls="MobileSubMenu-4">
+					Gift Cards
+				</button>
+				<div id="MobileSubMenu-4" class="sub-menu">
+					<ul>
+							<li>
+								<a href="https://www.toasttab.com/superba-food-bread-venice/giftcards"  target="_blank" rel="noopener">Venice</a>
+							</li>
+							<li>
+								<a href="https://www.toasttab.com/superba-snacks-and-coffee-pasadena/giftcards"  target="_blank" rel="noopener">Pasadena</a>
+							</li>
+							<li>
+								<a href="https://www.toasttab.com/superba-snacks-and-coffee-noho/giftcards"  target="_blank" rel="noopener">Noho</a>
+							</li>
+							<li>
+								<a href="https://www.toasttab.com/superba-food-bread-hollywood/giftcards"  target="_blank" rel="noopener">Hollywood</a>
+							</li>
+					</ul>
+				</div>
+			</li>
+
+		<li>
+			<a class="site-nav-link" href="/superba-gives/">#SuperbaGives</a>
+		</li>
+		<li>
+			<a class="site-nav-link" href="/superba-bakehouse/">Superba Bakehouse</a>
+		</li>
+		<li>
+			<a class="site-nav-link" href="/catering-and-events/">Catering + Events</a>
+		</li>
+		<li>
+			<a class="site-nav-link" href="/jobs/">Jobs</a>
+		</li>
+		<li>
+			<a class="site-nav-link" href="/contact/">Contact</a>
+		</li>
+<li><a href="/order-now" class="" target="_parent">Order Now</a></li>
+		</ul>
+  </nav>
+
+	        
+        <div class="site-social site-social--bordered">
+            <ul class="social-accounts">
+        <li><a href="https://www.instagram.com/lifesuperba/" target="_blank" rel="noopener" data-bb-track="button" data-bb-track-on="click" data-bb-track-category="Social Icons" data-bb-track-action="Click" data-bb-track-label="Instagram, Header"><span class="fa fa-instagram" aria-hidden="true"></span><span class="sr-only">Instagram</span></a></li>
+		</ul>
+        </div>
+
+        	
+	
+
+	      </div>
+	      
+	<div class="site-powered-by">
+	    <a href="https://getbento.com/?utm_source=header&amp;utm_campaign=lifesuperba.com" target="_blank" rel="noopener">powered by BentoBox</a>
+	</div>
+
+	    </div>
+	  </div>
+	</header>
+
+		
+
+		<div class="site-content">
+
+			
+			<main class="site-content__main page-id--609678">
+          <h1 class="sr-only">Home</h1>
+			  <span id="main-content" class="sr-only">Main content starts here, tab to start navigating</span>
+				
+		
+			
+			<section id="hero" aria-label="hero-section" class="hero hero--no-content hero--gallery hero--fullheight revealable">
+				
+				
+				
+		<div class="gallery gallery--fit">
+			
+      
+      
+          
+				<li>
+						
+						<div 
+  
+
+  
+    
+  
+
+  
+    
+      role="img" aria-label="a store filled with lots of counter space"
+    
+  
+ class="gallery__item gallery__item-fallback" style="background-image: url('https://images.getbento.com/accounts/a40d878eeed51f967e5d1a45d4171cfa/media/images/96108Superba_venice_space_photos-3.jpg?w=1200&fit=max&auto=compress,format'); background-position: 
+  
+  
+    
+  
+
+  none
+;">
+						</div>
+              <span class="sr-only">Slide 1 of 26</span>
+        </li>
+			
+      
+      
+          
+				<li>
+						
+						<div 
+  
+
+  
+    
+  
+
+  
+    
+      role="img" aria-label="a dining room table in front of a building"
+    
+  
+ class="gallery__item gallery__item-fallback" style="background-image: url('https://images.getbento.com/accounts/a40d878eeed51f967e5d1a45d4171cfa/media/images/40114JakobLayman.1021.SuperbaHollywood_093.jpg?w=1200&fit=max&auto=compress,format'); background-position: 
+  
+  
+    
+  
+
+  none
+;">
+						</div>
+              <span class="sr-only">Slide 2 of 26</span>
+        </li>
+			
+      
+      
+          
+				<li>
+						
+						<div 
+  
+
+  
+    
+  
+
+  
+    
+      role="img" aria-label="a close up of a bottle on the counter"
+    
+  
+ class="gallery__item gallery__item-fallback" style="background-image: url('https://images.getbento.com/accounts/a40d878eeed51f967e5d1a45d4171cfa/media/images/34528Snacks6.jpg?w=1200&fit=max&auto=compress,format'); background-position: 
+  
+  
+    
+  
+
+  none
+;">
+						</div>
+              <span class="sr-only">Slide 3 of 26</span>
+        </li>
+			
+      
+      
+          
+				<li>
+						
+						<div 
+  
+
+  
+    
+  
+
+  
+    
+      role="img" aria-label="a bowl filled with different types of food on a plate"
+    
+  
+ class="gallery__item gallery__item-fallback" style="background-image: url('https://images.getbento.com/accounts/a40d878eeed51f967e5d1a45d4171cfa/media/images/46239JakobLayman.0220.Superba_153_1.JPG?w=1200&fit=max&auto=compress,format'); background-position: 
+  
+  
+    
+  
+
+  none
+;">
+						</div>
+              <span class="sr-only">Slide 4 of 26</span>
+        </li>
+			
+      
+      
+          
+				<li>
+						
+						<div 
+  
+
+  
+    
+  
+
+  
+    
+      role="img" aria-label="a room filled with furniture and a table in front of a building"
+    
+  
+ class="gallery__item gallery__item-fallback" style="background-image: url('https://images.getbento.com/accounts/a40d878eeed51f967e5d1a45d4171cfa/media/tBfzYaoGR5mbf0AvMuj1_Snacks1.jpg?w=1200&fit=max&auto=compress,format'); background-position: 
+  
+  
+    
+  
+
+  none
+;">
+						</div>
+              <span class="sr-only">Slide 5 of 26</span>
+        </li>
+			
+      
+      
+          
+				<li>
+						
+						<div 
+  
+
+  
+    
+  
+
+  
+    
+      role="img" aria-label="a plate of food on a table"
+    
+  
+ class="gallery__item gallery__item-fallback" style="background-image: url('https://images.getbento.com/accounts/a40d878eeed51f967e5d1a45d4171cfa/media/images/48731JakobLayman.0320.SuperbaHollywood_162.jpg?w=1200&fit=max&auto=compress,format'); background-position: 
+  
+  
+    
+  
+
+  none
+;">
+						</div>
+              <span class="sr-only">Slide 6 of 26</span>
+        </li>
+			
+      
+      
+          
+				<li>
+						
+						<div 
+  
+
+  
+    
+  
+
+  
+    
+      role="img" aria-label="a plate of food on a table"
+    
+  
+ class="gallery__item gallery__item-fallback" style="background-image: url('https://images.getbento.com/accounts/a40d878eeed51f967e5d1a45d4171cfa/media/images/40204multi_items-30.jpg?w=1200&fit=max&auto=compress,format'); background-position: 
+  
+  
+    
+  
+
+  none
+;">
+						</div>
+              <span class="sr-only">Slide 7 of 26</span>
+        </li>
+			
+      
+      
+          
+				<li>
+						
+						<div 
+  
+
+  
+    
+  
+
+  
+    
+      role="img" aria-label="a sandwich cut in half on a plate"
+    
+  
+ class="gallery__item gallery__item-fallback" style="background-image: url('https://images.getbento.com/accounts/a40d878eeed51f967e5d1a45d4171cfa/media/images/57308JakobLayman.0220.Superba_700.jpg?w=1200&fit=max&auto=compress,format'); background-position: 
+  
+  
+    
+  
+
+  none
+;">
+						</div>
+              <span class="sr-only">Slide 8 of 26</span>
+        </li>
+			
+      
+      
+          
+				<li>
+						
+						<div 
+  
+
+  
+    
+  
+
+  
+    
+      role="img" aria-label="a dining room table"
+    
+  
+ class="gallery__item gallery__item-fallback" style="background-image: url('https://images.getbento.com/accounts/a40d878eeed51f967e5d1a45d4171cfa/media/images/87491Superba1.jpg?w=1200&fit=max&auto=compress,format'); background-position: 
+  
+  
+    
+  
+
+  none
+;">
+						</div>
+              <span class="sr-only">Slide 9 of 26</span>
+        </li>
+			
+      
+      
+          
+				<li>
+						
+						<div 
+  
+
+  
+    
+  
+
+  
+    
+      role="img" aria-label="a bowl of food on a plate"
+    
+  
+ class="gallery__item gallery__item-fallback" style="background-image: url('https://images.getbento.com/accounts/a40d878eeed51f967e5d1a45d4171cfa/media/PFTsOnQgT76dxsRRXcTU_avocado toast.jpg?w=1200&fit=max&auto=compress,format'); background-position: 
+  
+  
+    
+  
+
+  none
+;">
+						</div>
+              <span class="sr-only">Slide 10 of 26</span>
+        </li>
+			
+      
+      
+          
+				<li>
+						
+						<div 
+  
+
+  
+    
+  
+
+  
+    
+      role="img" aria-label="a dining room table in front of a building"
+    
+  
+ class="gallery__item gallery__item-fallback" style="background-image: url('https://images.getbento.com/accounts/a40d878eeed51f967e5d1a45d4171cfa/media/images/57126JakobLayman.1021.SuperbaHollywood_097.JPG?w=1200&fit=max&auto=compress,format'); background-position: 
+  
+  
+    
+  
+
+  none
+;">
+						</div>
+              <span class="sr-only">Slide 11 of 26</span>
+        </li>
+			
+      
+      
+          
+				<li>
+						
+						<div 
+  
+
+  
+    
+  
+
+  
+    
+      role="img" aria-label="a bowl filled with different types of food on a plate"
+    
+  
+ class="gallery__item gallery__item-fallback" style="background-image: url('https://images.getbento.com/accounts/a40d878eeed51f967e5d1a45d4171cfa/media/images/57772JakobLayman.0220.Superba_554.JPG?w=1200&fit=max&auto=compress,format'); background-position: 
+  
+  
+    
+  
+
+  none
+;">
+						</div>
+              <span class="sr-only">Slide 12 of 26</span>
+        </li>
+			
+      
+      
+          
+				<li>
+						
+						<div 
+  
+
+  
+    
+  
+
+  
+    
+      role="img" aria-label="a sign in front of a building"
+    
+  
+ class="gallery__item gallery__item-fallback" style="background-image: url('https://images.getbento.com/accounts/a40d878eeed51f967e5d1a45d4171cfa/media/images/92366JakobLayman.0220.Superba_370_1.JPG?w=1200&fit=max&auto=compress,format'); background-position: 
+  
+  
+    
+  
+
+  none
+;">
+						</div>
+              <span class="sr-only">Slide 13 of 26</span>
+        </li>
+			
+      
+      
+          
+				<li>
+						
+						<div 
+  
+
+  
+    
+  
+
+  
+    
+      role="img" aria-label="a cup of coffee on a table"
+    
+  
+ class="gallery__item gallery__item-fallback" style="background-image: url('https://images.getbento.com/accounts/a40d878eeed51f967e5d1a45d4171cfa/media/images/55927JakobLayman.0220.Superba_354_1.JPG?w=1200&fit=max&auto=compress,format'); background-position: 
+  
+  
+    
+  
+
+  none
+;">
+						</div>
+              <span class="sr-only">Slide 14 of 26</span>
+        </li>
+			
+      
+      
+          
+				<li>
+						
+						<div 
+  
+
+  
+    
+  
+
+  
+    
+      role="img" aria-label="a close up of a cutting board with dough"
+    
+  
+ class="gallery__item gallery__item-fallback" style="background-image: url('https://images.getbento.com/accounts/a40d878eeed51f967e5d1a45d4171cfa/media/images/66463JakobLayman.0220.Superba_844.JPG?w=1200&fit=max&auto=compress,format'); background-position: 
+  
+  
+    
+  
+
+  none
+;">
+						</div>
+              <span class="sr-only">Slide 15 of 26</span>
+        </li>
+			
+      
+      
+          
+				<li>
+						
+						<div 
+  
+
+  
+    
+  
+
+  
+    
+      role="img" aria-label="a store filled with lots of counter space"
+    
+  
+ class="gallery__item gallery__item-fallback" style="background-image: url('https://images.getbento.com/accounts/a40d878eeed51f967e5d1a45d4171cfa/media/images/77022Superba5.jpg?w=1200&fit=max&auto=compress,format'); background-position: 
+  
+  
+    
+  
+
+  none
+;">
+						</div>
+              <span class="sr-only">Slide 16 of 26</span>
+        </li>
+			
+      
+      
+          
+				<li>
+						
+						<div 
+  
+
+  
+    
+  
+
+  
+    
+      role="img" aria-label="a dining room table in front of a curtain"
+    
+  
+ class="gallery__item gallery__item-fallback" style="background-image: url('https://images.getbento.com/accounts/a40d878eeed51f967e5d1a45d4171cfa/media/images/67678JakobLayman.1021.SuperbaHollywood_069.jpg?w=1200&fit=max&auto=compress,format'); background-position: 
+  
+  
+    
+  
+
+  none
+;">
+						</div>
+              <span class="sr-only">Slide 17 of 26</span>
+        </li>
+			
+      
+      
+          
+				<li>
+						
+						<div 
+  
+
+  
+    
+  
+
+  
+    
+      role="img" aria-label="food on a plate"
+    
+  
+ class="gallery__item gallery__item-fallback" style="background-image: url('https://images.getbento.com/accounts/a40d878eeed51f967e5d1a45d4171cfa/media/images/55694JakobLayman.0220.Superba_519.JPG?w=1200&fit=max&auto=compress,format'); background-position: 
+  
+  
+    
+  
+
+  none
+;">
+						</div>
+              <span class="sr-only">Slide 18 of 26</span>
+        </li>
+			
+      
+      
+          
+				<li>
+						
+						<div 
+  
+
+  
+    
+  
+
+  
+    
+      role="img" aria-label="a bowl filled with different types of food on a plate"
+    
+  
+ class="gallery__item gallery__item-fallback" style="background-image: url('https://images.getbento.com/accounts/a40d878eeed51f967e5d1a45d4171cfa/media/images/61246SSC_PAS_-10.jpg?w=1200&fit=max&auto=compress,format'); background-position: 
+  
+  
+    
+  
+
+  none
+;">
+						</div>
+              <span class="sr-only">Slide 19 of 26</span>
+        </li>
+			
+      
+      
+          
+				<li>
+						
+						<div 
+  
+
+  
+    
+  
+
+  
+    
+      role="img" aria-label="food cooking in an oven"
+    
+  
+ class="gallery__item gallery__item-fallback" style="background-image: url('https://images.getbento.com/accounts/a40d878eeed51f967e5d1a45d4171cfa/media/images/97093JakobLayman.0220.Superba_395.JPG?w=1200&fit=max&auto=compress,format'); background-position: 
+  
+  
+    
+  
+
+  none
+;">
+						</div>
+              <span class="sr-only">Slide 20 of 26</span>
+        </li>
+			
+      
+      
+          
+				<li>
+						
+						<div 
+  
+
+  
+    
+  
+
+  
+    
+      role="img" aria-label="a plate of food with broccoli"
+    
+  
+ class="gallery__item gallery__item-fallback" style="background-image: url('https://images.getbento.com/accounts/a40d878eeed51f967e5d1a45d4171cfa/media/images/18063JakobLayman.0220.Superba_584.JPG?w=1200&fit=max&auto=compress,format'); background-position: 
+  
+  
+    
+  
+
+  none
+;">
+						</div>
+              <span class="sr-only">Slide 21 of 26</span>
+        </li>
+			
+      
+      
+          
+				<li>
+						
+						<div 
+  
+
+  
+    
+  
+
+  
+    
+      role="img" aria-label="a store inside of a building"
+    
+  
+ class="gallery__item gallery__item-fallback" style="background-image: url('https://images.getbento.com/accounts/a40d878eeed51f967e5d1a45d4171cfa/media/images/74869JakobLayman.0220.Superba_223_1.JPG?w=1200&fit=max&auto=compress,format'); background-position: 
+  
+  
+    
+  
+
+  none
+;">
+						</div>
+              <span class="sr-only">Slide 22 of 26</span>
+        </li>
+			
+      
+      
+          
+				<li>
+						
+						<div 
+  
+
+  
+    
+  
+
+  
+    
+      role="img" aria-label="a sandwich and salad on a plate"
+    
+  
+ class="gallery__item gallery__item-fallback" style="background-image: url('https://images.getbento.com/accounts/a40d878eeed51f967e5d1a45d4171cfa/media/images/73537JakobLayman.0220.Superba_085.JPG?w=1200&fit=max&auto=compress,format'); background-position: 
+  
+  
+    
+  
+
+  none
+;">
+						</div>
+              <span class="sr-only">Slide 23 of 26</span>
+        </li>
+			
+      
+      
+          
+				<li>
+						
+						<div 
+  
+
+  
+    
+  
+
+  
+    
+      role="img" aria-label="diagram"
+    
+  
+ class="gallery__item gallery__item-fallback" style="background-image: url('https://images.getbento.com/accounts/a40d878eeed51f967e5d1a45d4171cfa/media/images/75907Superba2.jpg?w=1200&fit=max&auto=compress,format'); background-position: 
+  
+  
+    
+  
+
+  none
+;">
+						</div>
+              <span class="sr-only">Slide 24 of 26</span>
+        </li>
+			
+      
+      
+          
+				<li>
+						
+						<div 
+  
+
+  
+    
+  
+
+  
+    
+      role="img" aria-label="a close up of a plate of food with broccoli"
+    
+  
+ class="gallery__item gallery__item-fallback" style="background-image: url('https://images.getbento.com/accounts/a40d878eeed51f967e5d1a45d4171cfa/media/images/17162JakobLayman.0220.Superba_622.JPG?w=1200&fit=max&auto=compress,format'); background-position: 
+  
+  
+    
+  
+
+  none
+;">
+						</div>
+              <span class="sr-only">Slide 25 of 26</span>
+        </li>
+			
+      
+      
+          
+				<li>
+						
+						<div 
+  
+
+  
+    
+  
+
+  
+    
+      role="img" aria-label="a dining room table"
+    
+  
+ class="gallery__item gallery__item-fallback" style="background-image: url('https://images.getbento.com/accounts/a40d878eeed51f967e5d1a45d4171cfa/media/images/85135JakobLayman.1021.SuperbaHollywood_040.jpg?w=1200&fit=max&auto=compress,format'); background-position: 
+  
+  
+    
+  
+
+  none
+;">
+						</div>
+              <span class="sr-only">Slide 26 of 26</span>
+        </li>
+			
+	    </div>
+
+				 
+	<div id="motion-elements-control-section">
+		<button class='btn fa fa-play play-motion ada-motion-toggle-btns hide-motion' data-action='play'>
+			<span class='sr-only'>hero gallery paused, press to play images slides</span>
+		</button>
+		<button class='btn fa fa-pause pause-motion ada-motion-toggle-btns' data-action='pause'>
+			<span class='sr-only'>Playing hero gallery, press to pause images slides</span>
+		</button>
+	</div>
+
+			</section>
+
+
+
+				
+		
+				
+		
+		<section class="c-one-col--text content container revealable">
+			
+	        <div class="locationsPortal"><a href="https://lifesuperba.getbento.com/location/superba-hollywood/">&nbsp;<div class="locThree"><br></div></a> <a href="https://lifesuperba.getbento.com/location/superba-venice/">&nbsp;<div class="locOne"><br></div></a> <a href="https://lifesuperba.getbento.com/location/superba-pasadena/">&nbsp;<div class="locTwo"><br></div></a> <a href="https://lifesuperba.getbento.com/location/superba-noho/">&nbsp;<div class="locFour"><br></div></a></div>
+	    </section>
+
+
+				
+    
+		
+		<section class="c-split c-split--vcenter revealable">
+					
+  
+  
+
+	<div class="c-split__col ">
+		<div class="c-split__col-inner">
+				<div class="c-split__content content">
+					<h2 class="h2 c-split__heading">A life superba</h2>
+					<p>We are a community born of the belief that the good things in life ought to be shared, and that great food should be accessible to all who seek it. Our superba spaces are equal parts bakeries, caf&eacute;s, and neighborhood meet-up spots where you&rsquo;re sure to either bump into someone you know or to make a new friend. We are proud to bring integrity to our food, our design, and our people, and are committed to sharing these lovely things with our community.</p>
+					
+	
+		
+
+	
+
+				</div>
+		</div>
+	</div>
+
+					
+  
+  
+
+	<div class="c-split__col c-split__col--empty">
+		<div class="c-split__col-inner">
+				<div class="c-split__image" 
+  
+
+  
+    
+  
+
+  
+    
+      role="img" aria-label="a group of people sitting at a table"
+    
+  
+ style="background-image: url('https://images.getbento.com/accounts/a40d878eeed51f967e5d1a45d4171cfa/media/images/65649sfb_kids3_copy.jpg?w=1200&fit=max&auto=compress,format');background-position: 
+  
+  
+    
+  
+
+  none
+"></div>
+		</div>
+	</div>
+
+		</section>
+
+
+				
+    
+		
+		<section class="c-split c-split--vcenter c-split--alternate revealable">
+					
+  
+  
+
+	<div class="c-split__col ">
+		<div class="c-split__col-inner">
+				<div class="c-split__content content">
+					<h2 class="h2 c-split__heading">Menus</h2>
+					<h3><strong>Click on your preferred location to see what&#39;s new! <br></strong></h3><h3><a class="btn btn-brand" href="/venice-menu/">Venice</a></h3><p><a class="btn btn-brand" href="/hollywood-menu/">Hollywood</a></p><p><a class="btn btn-brand" href="/pasadena-menu">Pasadena</a></p><p><a class="btn btn-brand" href="/noho-menu/">Noho</a></p>
+					
+	
+		
+
+	
+
+				</div>
+		</div>
+	</div>
+
+					
+  
+  
+
+	<div class="c-split__col c-split__col--empty">
+		<div class="c-split__col-inner">
+				<div class="c-split__image" 
+  
+
+  
+    
+  
+
+  
+    
+      role="img" aria-label="a bowl of food on a plate on a wooden table"
+    
+  
+ style="background-image: url('https://images.getbento.com/accounts/a40d878eeed51f967e5d1a45d4171cfa/media/IMgzWb7HTqeyaeP5tG6E_grain bowl-1.jpg?w=1200&fit=max&auto=compress,format');background-position: 
+  
+  
+    
+  
+
+  none
+"></div>
+		</div>
+	</div>
+
+		</section>
+
+
+				
+    
+		
+		<section class="c-split c-split--vcenter revealable">
+					
+  
+  
+
+	<div class="c-split__col ">
+		<div class="c-split__col-inner">
+				<div class="c-split__content content">
+					<h2 class="h2 c-split__heading">Online Ordering </h2>
+					<h3><strong>Place your order for local pick up or delivery today <br></strong></h3><h3><a class="btn btn-brand" href="/venice-order-online/">Venice</a></h3><p><a class="btn btn-brand" href="/hollywood-order-online/">Hollywood</a></p><p><a class="btn btn-brand" href="/pasadena-order-online/">Pasadena</a></p><p><a class="btn btn-brand" href="/noho-order-online/">Noho</a></p>
+					
+	
+		
+			
+		<a href="/superba-bakehouse" class="btn btn-brand" target="_parent">Bakehouse</a>
+
+
+	
+
+				</div>
+		</div>
+	</div>
+
+					
+  
+  
+
+	<div class="c-split__col c-split__col--empty">
+		<div class="c-split__col-inner">
+				<div class="c-split__image" 
+  
+
+  
+    
+  
+
+  
+    
+      role="img" aria-label="a store filled with lots of counter space"
+    
+  
+ style="background-image: url('https://images.getbento.com/accounts/a40d878eeed51f967e5d1a45d4171cfa/media/images/3923896108Superba_venice_space_photos-3.jpg?w=1200&fit=max&auto=compress,format');background-position: 
+  
+  
+    
+  
+
+  none
+"></div>
+		</div>
+	</div>
+
+		</section>
+
+
+				
+    
+		
+		<section class="c-split c-split--vcenter revealable">
+					
+  
+  
+
+	<div class="c-split__col c-split__col--empty">
+		<div class="c-split__col-inner">
+				<div class="c-split__image" 
+  
+
+  
+    
+  
+
+  
+    
+      role="img" aria-label="food on a table"
+    
+  
+ style="background-image: url('https://images.getbento.com/accounts/a40d878eeed51f967e5d1a45d4171cfa/media/images/64968JakobLayman.0320.SuperbaHollywood_048.jpg?w=1200&fit=max&auto=compress,format');background-position: 
+  
+  
+    
+  
+
+  none
+"></div>
+		</div>
+	</div>
+
+					
+  
+  
+
+	<div class="c-split__col ">
+		<div class="c-split__col-inner">
+				<div class="c-split__content content">
+					<h2 class="h2 c-split__heading">Catering + Events</h2>
+					<p>Bring a little life superba to your next event, whether you are looking to host at one of our locations or take selections away to the party&nbsp;</p>
+					
+	
+		
+			
+		<a href="/catering-and-events" class="btn btn-brand" target="_parent">Learn More</a>
+
+
+	
+
+				</div>
+		</div>
+	</div>
+
+		</section>
+
+
+				
+    
+		
+		<section class="c-split c-split--vcenter revealable">
+					
+  
+  
+
+	<div class="c-split__col ">
+		<div class="c-split__col-inner">
+				<div class="c-split__content content">
+					<h2 class="h2 c-split__heading">Superba Bakehouse</h2>
+					<p>Our team of talented bakers rises before the sun to prepare and deliver freshly baked breads and pastries to our restaurants. Bring home a little piece of the magic with advanced bread + pastry orders for pickup!</p>
+					
+	
+		
+			
+		<a href="/superba-bakehouse" class="btn btn-brand" target="_parent">Learn More</a>
+
+
+	
+
+				</div>
+		</div>
+	</div>
+
+					
+  
+  
+
+	<div class="c-split__col c-split__col--empty">
+		<div class="c-split__col-inner">
+				<div class="c-split__image" 
+  
+
+  
+    
+  
+
+  
+    
+      role="img" aria-label="a close up of a cutting board"
+    
+  
+ style="background-image: url('https://images.getbento.com/accounts/a40d878eeed51f967e5d1a45d4171cfa/media/images/66463JakobLayman.0220.Superba_844.JPG?w=1200&fit=max&auto=compress,format');background-position: 
+  
+  
+    
+  
+
+  none
+"></div>
+		</div>
+	</div>
+
+		</section>
+
+
+				
+    
+		
+		<section class="c-split c-split--vcenter revealable">
+					
+  
+  
+
+	<div class="c-split__col c-split__col--empty">
+		<div class="c-split__col-inner">
+				<div class="c-split__image" 
+  
+
+  
+    
+  
+
+  
+    
+      role="img" aria-label="a person standing in front of a box"
+    
+  
+ style="background-image: url('https://images.getbento.com/accounts/a40d878eeed51f967e5d1a45d4171cfa/media/images/86073JakobLayman.0220.Superba_886.JPG?w=1200&fit=max&auto=compress,format');background-position: 
+  
+  
+    
+  
+
+  none
+"></div>
+		</div>
+	</div>
+
+					
+  
+  
+
+	<div class="c-split__col ">
+		<div class="c-split__col-inner">
+				<div class="c-split__content content">
+					<h2 class="h2 c-split__heading">Superba Gives </h2>
+					<p>Life Superba builds up and supports communities. We make monthly donations with participation and guidance from our guests. Come see how to be a part of it all!</p>
+					
+	
+		
+			
+		<a href="/superba-gives/" class="btn btn-brand" target="_parent">Learn More </a>
+
+
+	
+
+				</div>
+		</div>
+	</div>
+
+		</section>
+
+
+				
+		
+		<section class="c-one-col--text content container revealable">
+			<h2>Follow Us On Instagram</h2>
+	        
+	    </section>
+
+
+				
+
+
+
+				
+			</main>
+
+			
+					
+
+	<aside class="mobi-footer mobi-footer--sticky">
+	    <ul class="mobi-footer__list">
+				<li class="mobi-footer__item">
+					
+	
+		
+			
+		<a href="/order-now" class="btn btn-brand btn-block" target="_parent">Order Now</a>
+
+
+	
+
+				</li>
+	    </ul>
+	</aside>
+
+			
+		</div>
+
+		
+			
+        <footer>
+          <div class="site-footer-desktop">
+                  <div class="site-footer-desktop-primary" data-footer-sticky>
+                      <div class="site-footer-desktop-primary__container container">
+                              <ul class="social-accounts">
+        <li><a href="https://www.instagram.com/lifesuperba/" target="_blank" rel="noopener" data-bb-track="button" data-bb-track-on="click" data-bb-track-category="Social Icons" data-bb-track-action="Click" data-bb-track-label="Instagram, Footer"><span class="fa fa-instagram" aria-hidden="true"></span><span class="sr-only">Instagram</span></a></li>
+		</ul>
+                              <nav class="site-nav">
+                                  <ul class="site-nav-menu">
+                                          <li>
+			<a class="site-nav-link" href="/superba-gives/">#SuperbaGives</a>
+		</li>
+		<li>
+			<a class="site-nav-link" href="/superba-bakehouse/">Superba Bakehouse</a>
+		</li>
+		<li>
+			<a class="site-nav-link" href="/catering-and-events/">Catering + Events</a>
+		</li>
+		<li>
+			<a class="site-nav-link" href="/jobs/">Jobs</a>
+		</li>
+		<li>
+			<a class="site-nav-link" href="/contact/">Contact</a>
+		</li>
+                                  </ul>
+                              </nav>
+                      </div>
+                  </div>
+                  <div class="site-footer-desktop-secondary">
+                      <div class="site-powered-by">
+	    <a href="https://getbento.com/?utm_source=footer&amp;utm_campaign=lifesuperba.com" target="_blank" rel="noopener">powered by BentoBox</a>
+	</div>
+                  </div>
+          </div>
+        </footer>
+
+		
+	
+
+	
+	
+		
+        
+        
+        
+        <div id="popup-newsletter-form" class="popup popup--form mfp-hide">
+            <form class="js-form-ajax form-alt container-sm" data-form-endpoint="/forms/submit/newsletter/" enctype="multipart/form-data" method="post">
+    <div style="display: none;">
+        <label>leave this field blank
+            <input type="text" name="comment_body" value="" />
+        </label>
+    </div>
+    
+                <input type="hidden" name="form" value="newsletter">
+                
+		
+		<div data-bb-track="form" data-bb-track-on="submit" data-bb-track-category="Forms" data-bb-track-action="Submit" data-bb-track-label="Email Sign Up" aria-hidden="true"></div>
+
+                <div class="form-header">
+                    <h2 class="h1 form-heading">Email Signup</h2>
+                    
+                  </div>
+                <div class="form-ui">
+                    
+    
+    
+        
+        
+
+        
+            
+    
+<label for="327587" >
+    <i class="error-label"></i>
+    <span class="input-label">First Name
+         <span class="input-label-required">- Required</span>
+        
+    </span>
+    
+        <input id="327587" class="form-control" type="text" name="327587" placeholder="First Name" required
+         
+  
+  
+    
+  
+  
+  
+  
+  
+  
+    
+    autocomplete="given-name"
+  
+>
+    
+</label>
+
+
+        
+        
+    
+        
+        
+
+        
+            
+    
+<label for="327588" >
+    <i class="error-label"></i>
+    <span class="input-label">Last Name
+         <span class="input-label-required">- Required</span>
+        
+    </span>
+    
+        <input id="327588" class="form-control" type="text" name="327588" placeholder="Last Name" required
+         
+  
+  
+  
+    
+  
+  
+  
+  
+  
+    
+    autocomplete="family-name"
+  
+>
+    
+</label>
+
+
+        
+        
+    
+        
+        
+
+        
+            
+    
+<label for="327589" >
+    <i class="error-label"></i>
+    <span class="input-label">Email
+         <span class="input-label-required">- Required</span>
+        
+    </span>
+    
+        <input id="327589" class="form-control" type="email" name="327589" placeholder="Email" required 
+  
+  
+  
+  
+    
+  
+  
+  
+  
+    
+    autocomplete="email"
+  
+>
+    
+</label>
+
+
+        
+        
+    
+
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-brand-alt">Submit</button>
+                    <span class="form-error-msg">Please check errors in the form above</span>
+                </div>
+                <div class="form-success-msg">
+                    <span role="alert">Thank you for signing up for email updates!</span>
+                    <button type="button" class="btn btn-brand-alt js-popup-closebtn">Close</button>
+                </div>
+                
+
+  
+
+    
+    
+
+  
+
+  
+
+  
+            
+    </form>
+        </div>
+
+		
+		<div id="popup-reservations-form" class="popup popup--form mfp-hide">
+			<form  class="reservations-form form-alt container-sm" >
+				
+		
+		<div data-bb-track="form" data-bb-track-on="submit" data-bb-track-category="Forms" data-bb-track-action="Submit" data-bb-track-label="Reservations" aria-hidden="true"></div>
+
+          <div class="form-header"><h2 class="h1 form-heading">Reservations</h2>
+          </div>
+		      <div class="form-ui">
+						<label for="location">
+	          	<i class="error-label"></i>
+							<span class="input-label">Location
+								<span class="input-label-required">- Required</span>
+							</span>
+							<div class="form-control-group has-icon-right">
+								<select id="location" class="form-control unselected" name="location" required aria-describedby="location">
+									<option value="" selected disabled>Location</option>
+										<option value="superba-venice"
+												data-reservation-service="resy"
+												data-reservation-id="33593"
+												data-reservation-api-key="i2JAPMrQoIBGaly8PaMQamPvDboTdCIn">Venice
+										</option>
+										<option value="superba-hollywood"
+												data-reservation-service="resy"
+												data-reservation-id="10535"
+												data-reservation-api-key="vgH5D3Jk6MmaBh1O6iVG1LzZeyL9DJPd">Hollywood
+										</option>
+								</select>
+								<span class="form-control-group--icon is-positioned-right" aria-hidden="true">
+									<i class="fa fa-chevron-down"></i>
+								</span>
+							</div>
+	        	</label>
+						<label for="seats">
+							<span class="input-label" aria-hidden="true">Number of People
+								<span class="input-label-optional">- Optional</span>
+							</span>
+							<div class="form-control-group has-icon-right">
+								<select id="seats" class="form-control unselected" name="seats">
+									<option value="" selected disabled>Number of People</option>
+									<option value="1">1 Person</option>
+									<option value="2">2 People</option>
+									<option value="3">3 People</option>
+									<option value="4">4 People</option>
+									<option value="5">5 People</option>
+									<option value="6">6 People</option>
+									<option value="7">7 People</option>
+									<option value="8">8+ People</option>
+								</select>
+								<span class="form-control-group--icon is-positioned-right" aria-hidden="true">
+									<i class="fa fa-chevron-down"></i>
+								</span>
+							</div>
+						</label>
+						<label for="date">
+							<i class="error-label"></i>
+							<span class="input-label">Date
+								<span class="input-label-required">- Required</span>
+							</span>
+							<div data-react-component="accessible-date-picker"></div>
+						</label>
+						<label for="time">
+							<span class="input-label" aria-hidden="true">Time
+								<span class="input-label-optional">- Optional</span>
+							</span>
+							<div class="form-control-group has-icon-left has-icon-right">
+								<span class="form-control-group--icon is-positioned-left" aria-hidden="true">
+									<i class="fa fa-clock-o"></i>
+								</span>
+								<select id="time" class="form-control unselected" name="time">
+									<option value="" selected disabled>Time</option>
+									
+									
+										<option value="2300">11:00 PM</option>
+									
+										<option value="2230">10:30 PM</option>
+									
+										<option value="2200">10:00 PM</option>
+									
+										<option value="2130">9:30 PM</option>
+									
+										<option value="2100">9:00 PM</option>
+									
+										<option value="2030">8:30 PM</option>
+									
+										<option value="2000">8:00 PM</option>
+									
+										<option value="1930">7:30 PM</option>
+									
+										<option value="1900">7:00 PM</option>
+									
+										<option value="1830">6:30 PM</option>
+									
+										<option value="1800">6:00 PM</option>
+									
+										<option value="1730">5:30 PM</option>
+									
+										<option value="1700">5:00 PM</option>
+									
+										<option value="1630">4:30 PM</option>
+									
+										<option value="1600">4:00 PM</option>
+									
+										<option value="1530">3:30 PM</option>
+									
+										<option value="1500">3:00 PM</option>
+									
+										<option value="1430">2:30 PM</option>
+									
+										<option value="1400">2:00 PM</option>
+									
+										<option value="1330">1:30 PM</option>
+									
+										<option value="1300">1:00 PM</option>
+									
+										<option value="1230">12:30 PM</option>
+									
+										<option value="1200">12:00 PM</option>
+									
+										<option value="1130">11:30 AM</option>
+									
+										<option value="1100">11:00 AM</option>
+									
+										<option value="1030">10:30 AM</option>
+									
+										<option value="1000">10:00 AM</option>
+									
+										<option value="0930">9:30 AM</option>
+									
+										<option value="0900">9:00 AM</option>
+									
+										<option value="0830">8:30 AM</option>
+									
+										<option value="0800">8:00 AM</option>
+									
+										<option value="0730">7:30 AM</option>
+									
+										<option value="0700">7:00 AM</option>
+									
+								</select>
+								<span class="form-control-group--icon is-positioned-right" aria-hidden="true">
+									<i class="fa fa-chevron-down"></i>
+								</span>
+							</div>
+						</label>
+		      </div>
+		      <div class="form-actions">
+		        <button type="submit" class="btn btn-brand-alt">Find A Table</button>
+		        <span class="form-error-msg">Please check errors in the form above</span>
+		      </div>
+		      <div class="form-success-msg">
+		        <span>Thanks!</span>
+		      </div>
+				</form>
+			</div>
+
+	
+
+
+	
+  
+		<script type="text/javascript" src="https://theme-assets.getbento.com/sensei/abc7247.sensei/assets/js/foot.libs.min.js"></script>
+        <script type="text/javascript" src="https://theme-assets.getbento.com/sensei/abc7247.sensei/assets/js/bentobox.min.js"></script>
+
+        
+        
+
+	
+  <script id="alerts-component-script" type="text/javascript" src="https://app-assets.getbento.com/alerts-component/488bf15/main.js"></script>
+  <script type="text/javascript" src="https://app-assets.getbento.com/alerts-component/488bf15/main.js.map"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function(){
+		const has_diner_signup_ff = "false" === 'true'
+
+      	window.bentobox.overlayAlertComponent.init(
+			'div',  { has_diner_signup_ff }
+	  	);
+      	window.bentobox.bannerAlertComponent.init();
+    });
