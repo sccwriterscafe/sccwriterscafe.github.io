@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive Three.js Stars</title>
+    <style>
+        body { margin: 0; }
+    </style>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+
+        // Initialize Three.js
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        // Create a geometry for the stars
+        const starGeometry = new THREE.BufferGeometry();
+        const starMaterial = new THREE.PointsMaterial({ color: 0xffffff });
+
+        // Create an array to store star positions
+        const stars = [];
+        
+        // Create a points object for stars
+        const starField = new THREE.Points(starGeometry, starMaterial);
+        scene.add(starField);
+
+        // Function to add a new star at the given position
+        function addStar(position) {
+            const starVertex = new THREE.Vector3();
+            starVertex.x = (Math.random() - 0.5) * 100;
+            starVertex.y = (Math.random() - 0.5) * 100;
+            starVertex.z = -Math.random() * 100;
+            starGeometry.attributes.position.array.push(starVertex.x, starVertex.y, starVertex.z);
+            starGeometry.attributes.position.needsUpdate = true;
+            stars.push(starVertex);
+        }
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            const newWidth = window.innerWidth;
+            const newHeight = window.innerHeight;
+            camera.aspect = newWidth / newHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(newWidth, newHeight);
+        });
+
+        // Handle mouse click event
+        window.addEventListener('click', (event) => {
+            // Get mouse coordinates in normalized device space
+            const mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+            const mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+
+            // Calculate the intersection point with the camera's near plane
+            const raycaster = new THREE.Raycaster();
+            raycaster.setFromCamera({ x: mouseX, y: mouseY }, camera);
+            const intersects = raycaster.intersectObject(starField);
+
+            // Add a new star at the intersection point
+            if (intersects.length > 0) {
+                const intersectionPoint = intersects[0].point;
+                addStar(intersectionPoint);
+            }
+        });
+
+        // Set camera position
+        camera.position.z = 5;
+
+        // Render loop
+        const animate = () => {
+            requestAnimationFrame(animate);
+
+            // Rotate stars
+            starField.rotation.x += 0.001;
+            starField.rotation.y += 0.001;
+
+            renderer.render(scene, camera);
+        };
+
+        animate();
+
+    </script>
+</body>
+</html>
